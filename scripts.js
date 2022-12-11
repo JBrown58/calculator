@@ -20,23 +20,30 @@ function operate (a, b, func) {
 
 let displayValue = document.getElementById('display')
 
+let displayValue2 = displayValue.toString
+
+
 function displayNumbers () {
   //when a button is pressed, its value will be stored in calcDisplay
 }
 
 let list = document.getElementsByClassName('button-item');
 
+//everytime the button is clicked, it will add that number to the displayValue
+let firstNumber;
+let operand;
 for(let i=0; i < list.length; i++){
   list[i].addEventListener("click", function () {
-    displayValue.innerHTML= list[i].innerHTML
+    displayValue.innerHTML += list[i].innerHTML
+    if (displayValue.indexOf("/") >= 0 || displayValue.indexOf("*") >= 0 || displayValue.indexOf("/") >= 0 || displayValue.indexOf("/") >= 0) {
+      firstNumber = displayValue.innerHTML
+      operand = displayValue.charAt(displayValue.length - 1)
+  }
+})}
 
-  })
-}
+let test = 'test'
 
-function calc () {
-  if (document.getElementById('display') == 2) {
-    console.log('here')
-} else {console.log('nope')}}
+  
 
 
 
