@@ -47,10 +47,5 @@
     outline: 2px solid transparent;
     outline-offset: 2px;
   }
-  
-  @media (min-width: 768px) {
-    .button-40 {
-      padding: .75rem 1.5rem;
-    }
-  }
+
 
