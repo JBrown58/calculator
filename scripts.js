@@ -20,7 +20,6 @@ function operate (a, b, func) {
 
 let displayValue = document.getElementById('display')
 
-let displayValue2 = displayValue.toString
 
 
 function displayNumbers () {
@@ -33,17 +32,25 @@ let list = document.getElementsByClassName('button-item');
 let firstNumber;
 let operand;
 for(let i=0; i < list.length; i++){
-  list[i].addEventListener("click", function () {
-    displayValue.innerHTML += list[i].innerHTML
-    if (displayValue.indexOf("/") >= 0 || displayValue.indexOf("*") >= 0 || displayValue.indexOf("/") >= 0 || displayValue.indexOf("/") >= 0) {
+  list[i].addEventListener("click", function (event) {
+    displayValue.innerHTML += event.target.innerHTML
+    if (event.target === list[3] || event.target === list[7] || event.target === list[11] || event.target === list[15]) {
       firstNumber = displayValue.innerHTML
-      operand = displayValue.charAt(displayValue.length - 1)
-  }
-})}
+      displayValue.innerHTML = firstNumber.lastIndexOf('/')
 
-let test = 'test'
+    }
+      }
+)}
 
-  
+
+
+/*buttons.addEventListener("click", function(event) {
+  // Check if the clicked element is a button
+  if (event.target.tagName === "BUTTON") {
+    const button = event.target;
+    const buttonValue = button.innerText;
+    const displayValue = display.innerText;
+
 
 
 
