@@ -3,7 +3,8 @@
     grid-template-columns: 50px 50px 50px 50px;
     column-gap: 5px;
     row-gap: 5px;
-    
+    position: relative;
+    top: 100px;
     
   }
   .grid-item {
@@ -48,4 +49,7 @@
     outline-offset: 2px;
   }
 
-
+  #buttons {
+  position: absolute;
+  top: 70px;
+}

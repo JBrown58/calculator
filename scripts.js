@@ -30,17 +30,21 @@ let list = document.getElementsByClassName('button-item');
 
 //everytime the button is clicked, it will add that number to the displayValue
 let firstNumber;
+let secondNumber = "";
 let operand;
 for(let i=0; i < list.length; i++){
   list[i].addEventListener("click", function (event) {
-    displayValue.innerHTML += event.target.innerHTML
-    if (event.target === list[3] || event.target === list[7] || event.target === list[11] || event.target === list[15]) {
-      firstNumber = displayValue.innerHTML
-      displayValue.innerHTML = firstNumber.lastIndexOf('/')
-
-    }
+    if (event.target ===  list[3] ||event.target === list[7] ||event.target === list[11] ||event.target === list[15]) {
+      operand = event.target.innerHTML
+      displayValue.innerHTML = secondNumber
+      return;
+    } else {displayValue.innerHTML += event.target.innerHTML}
+    firstNumber = displayValue.innerHTML
       }
-)}
+)
+}
+
+
 
 
 
