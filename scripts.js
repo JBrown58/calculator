@@ -19,12 +19,8 @@ function operate (a, b, func) {
 }
 
 let displayValue = document.getElementById('display')
-
-
-
-function displayNumbers () {
-  //when a button is pressed, its value will be stored in calcDisplay
-}
+let displaySummary = document.getElementById('displaySummary')
+let solution = document.getElementById('solution')
 
 let list = document.getElementsByClassName('button-item');
 
@@ -32,19 +28,27 @@ let list = document.getElementsByClassName('button-item');
 let firstNumber;
 let secondNumber = "";
 let operand;
+
 for(let i=0; i < list.length; i++){
   list[i].addEventListener("click", function (event) {
     if (event.target ===  list[3] ||event.target === list[7] ||event.target === list[11] ||event.target === list[15]) {
+      displaySummary.innerHTML = firstNumber
+      displayValue.innerHTML = ""
       operand = event.target.innerHTML
-      displayValue.innerHTML = secondNumber
-      return;
+      
+            
+    } else if (event.target === list[14]) {
+      solution.innerHTML = parseInt(displaySummary.innerHTML) + parseInt(displayValue.innerHTML)
     } else {displayValue.innerHTML += event.target.innerHTML}
-    firstNumber = displayValue.innerHTML
+    firstNumber = displayValue.innerHTML 
       }
-)
-}
+      )}
+      
+      //function operate (firstNumber, )
 
 
+
+//if the last event target was /-*+, set displayvlaue to ''
 
 
 
