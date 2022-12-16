@@ -11,7 +11,11 @@ function multiply (a, b) {
 }
 
 function divide (a, b) {
-  return a / b;
+  return b / a;
+}
+
+function noOperand (a) {
+  return a;
 }
 
 function operate (a, b, func) {
@@ -28,17 +32,31 @@ let list = document.getElementsByClassName('button-item');
 let firstNumber;
 let secondNumber = "";
 let operand;
+ 
 
 for(let i=0; i < list.length; i++){
   list[i].addEventListener("click", function (event) {
     if (event.target ===  list[3] ||event.target === list[7] ||event.target === list[11] ||event.target === list[15]) {
       displaySummary.innerHTML = firstNumber
+      secondNumber = displayValue.innerHTML
       displayValue.innerHTML = ""
       operand = event.target.innerHTML
       
             
     } else if (event.target === list[14]) {
-      solution.innerHTML = parseInt(displaySummary.innerHTML) + parseInt(displayValue.innerHTML)
+     if (typeof operand === "undefined") {
+      solution.innerHTML = parseInt(firstNumber)
+      return;
+     } else if (operand === "*") {
+      operand = multiply
+     } else if (operand === "-") {
+      operand = subtract
+     } else if (operand === "+") {
+      operand = add
+     } else if (operand === "/") {
+      operand = divide
+      }
+      solution.innerHTML = operate (parseInt(firstNumber), parseInt(secondNumber), operand )
     } else {displayValue.innerHTML += event.target.innerHTML}
     firstNumber = displayValue.innerHTML 
       }

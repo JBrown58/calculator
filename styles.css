@@ -53,3 +53,14 @@
   position: absolute;
   top: 70px;
 }
+ #displaySummary {
+  color: blue;
+ }
+
+ #display {
+  color: red;
+ }
+
+ #solution {
+  color:green
+ }
