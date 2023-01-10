@@ -21,7 +21,8 @@ function noOperand (a) {
 function operate (a, b, func) {
   return func(a, b)
 }
-
+let deleteBtn = document.getElementById('delete')
+let clearBtn = document.getElementById('clear')
 let displayValue = document.getElementById('display')
 let solution = document.getElementById('solution')
 let list = document.getElementsByClassName('button-item');
@@ -30,7 +31,8 @@ let firstNumber;
 let secondNumber = "";
 let operand;
 let result;
- 
+
+
 
 for(let i=0; i < list.length; i++){
  list[i].addEventListener("click", function (event) {
@@ -91,11 +93,8 @@ for(let i=0; i < list.length; i++){
     displayValue.innerHTML = ""
      } else if (event.target === list[14]) {
       if (typeof operand === "undefined") {
-        result = operate (parseInt(firstNumber), parseInt(secondNumber), operand )
-        displayValue.innerHTML = result
           return;
       }  secondNumber = displayValue.innerHTML
-      //result = operate (parseInt(firstNumber), parseInt(secondNumber), operand ) //calcsolution
       if (operand === "*") {
         result = operate (parseInt(firstNumber), parseInt(secondNumber), multiply )
       } else if (operand === "-") {
@@ -108,7 +107,6 @@ for(let i=0; i < list.length; i++){
      displayValue.innerHTML = result
     } else {
       displayValue.innerHTML += event.target.innerHTML
-      
       return;
       }
       if(typeof firstNumber !== "undefined") {
@@ -120,32 +118,25 @@ for(let i=0; i < list.length; i++){
         }
         secondNumber = displayValue.innerHTML
       }
-      /* if( secondNumber !== '' || typeof firstNumber !== "undefined") {
-          if (operand === "*") {
-          operand = multiply
-          } else if (operand === "-") {
-          operand = subtract
-          } else if (operand === "+") {
-          operand = add
-          } else if (operand === "/") {
-          operand = divide
-          }
-       result = operate (parseInt(firstNumber), parseInt(secondNumber), operand )
-       result = display.innerHTML
-      }
-
-      if(typeof firstNumber !== "undefined" || secondNumber !== ''  ) {
-        if(event.target ===  list[3] ||event.target === list[7] ||event.target === list[11] ||event.target === list[15]) {
-         result = operate (parseInt(firstNumber), parseInt(secondNumber), operand )
-        }
-      }*/
+  
         } 
         
       )
      
     }
       
+    deleteBtn.addEventListener("click", function() {
+      if (typeof firstNumber !== "undefined" && secondNumber === "") {
+      }else{displayValue.innerHTML = displayValue.innerHTML.substring(0,displayValue.innerHTML.length-1);}
+      });
       
+    clearBtn.addEventListener("click", function() {
+      firstNumber = undefined
+      secondNumber = ""
+      operand = undefined
+      result = undefined
+      displayValue.innerHTML = "";}
+        );    
     
     
     
